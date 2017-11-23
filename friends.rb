@@ -15,6 +15,21 @@ def return_likes_food (person, food)
 
 end
 
+def add_new_friend(person, friend)
+
+  person[:friends].push(friend)
+
+end
+
+def delete_friend(person, friend)
+  person[:friends].delete(friend)
+  return person[:friends].length()
+end
+# 4. For a given person, add a new name to their list of friends
+# (hint: Add a new string to the friends array, then test for the
+#length of the array, not the return value of your add_friend method)
+
+
 # @person5 = {
 #   name: "Dave",
 #   age: 20,

@@ -79,20 +79,38 @@ class TestFriends < MiniTest::Test
 
 
   # 3. For a given person, check if they like a particular food
-  def test_return_likes_food
+  def test_return_likes_stew
     result = return_likes_food(@person3, "stew")
     assert_equal(result, true)
-    # result = return_likes_food(@person3, "spinach")
-    # assert_equal(result, false)
   end
+
+  def test_return_likes_spinach
+    result = return_likes_food(@person3, "spinach")
+    assert_equal(result, false)
+  end
+
+
   # (e.g. function should return true for @person3 when checked for "stew", false for "spinach")
 
 
   # 4. For a given person, add a new name to their list of friends
-  # (hint: Add a new string to the friends array, then test for the length of the array, not the return value of your add_friend method)
+  # (hint: Add a new string to the friends array, then test for the
+  #length of the array, not the return value of your add_friend method)
 
+def test_add_new_friend
+  initial_friend_count = @person1[:friends].length()
 
+  new_friend_count = add_new_friend(@person1, "Trevor").length()
+  assert_equal(initial_friend_count, new_friend_count-1)
+
+end
   # 5. For a given person, remove a specific name from their list of friends
+
+def test_delete_friend
+  actual = delete_friend(@person4, "Rick")
+
+  assert_equal(2, actual)
+end
   # (hint: Same as above, testing for the length of the array should be sufficient)
 
 
@@ -115,5 +133,4 @@ class TestFriends < MiniTest::Test
 
   # Optional, VERY TOUGH
   # 10. Find the people who have the same favourite tv show
-
 end
